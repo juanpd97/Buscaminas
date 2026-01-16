@@ -1,6 +1,8 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
+    
+
   var btnJugar = document.getElementById("btn-jugar");
   btnJugar.addEventListener("click", function () {
     mostrarPantalla("pantalla-dificultad");
@@ -27,17 +29,21 @@ document.addEventListener("DOMContentLoaded", function () {
   btnFacil.addEventListener("click", function () {
     mostrarPantalla("pantalla-juego");
     empezarJuego(8, 8, 10);
+    dibujarTablero(8,8);
   });
 
   var btnMedio = document.getElementById("btn-medio");
   btnMedio.addEventListener("click", function () {
     mostrarPantalla("pantalla-juego");
-    // empezarJuego(12, 12, 25);
+    empezarJuego(12, 12, 25);
+    dibujarTablero(12,12);
   });
 
   var btnDificil = document.getElementById("btn-dificil");
   btnDificil.addEventListener("click", function () {
     mostrarPantalla("pantalla-juego");
+    empezarJuego(16,16,40);
+    dibujarTablero(16,16);
   });
 
   var btnDificultadPersonalizada = document.getElementById(
@@ -54,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarPantalla("pantalla-dificultad");
   });
 });
-// -----------------------------
+// ------------------------------------
 
 function mostrarPantalla(idPantalla) {
   //i
@@ -66,4 +72,27 @@ function mostrarPantalla(idPantalla) {
   }
 
   document.getElementById(idPantalla).classList.add("pantalla-activa");
+}
+
+
+function dibujarTablero(x, y) {
+    var tablero = document.getElementById('tablero');
+    
+    tablero.innerHTML = '';//i
+
+    for (var i = 0; i < x; i++) {
+        var divFila = document.createElement("div");
+        divFila.classList.add('fila-tablero'); 
+        
+        for (var j = 0; j < y; j++) {
+            var btnCelda = document.createElement('button'); 
+            btnCelda.setAttribute("data-x", i);
+            btnCelda.setAttribute("data-y", j);
+
+            // btnCelda.innerText = 'x';
+                        
+            divFila.appendChild(btnCelda); 
+        }
+        tablero.appendChild(divFila);
+    }
 }

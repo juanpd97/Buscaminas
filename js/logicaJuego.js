@@ -1,5 +1,7 @@
 "use strict";
 
+var tablero;
+
 function crearTablero(x, y) {
   var tablero = [];
 
@@ -82,6 +84,7 @@ function expandir(tablero, x, y) {
   }
 }
 
-// function empezarJuego(x,y,cantMinas) {
-
-// }
+function empezarJuego(x,y,cantidadMinas){
+    tablero = crearTablero(x,y);
+    colocarMina(cantidadMinas,tablero);
+};
