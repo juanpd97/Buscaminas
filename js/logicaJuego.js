@@ -88,3 +88,7 @@ function empezarJuego(x,y,cantidadMinas){
     tablero = crearTablero(x,y);
     colocarMina(cantidadMinas,tablero);
 };
+
+function presionarCelda(x,y){
+    // console.log(x,y);
+};

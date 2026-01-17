@@ -1,8 +1,6 @@
 "use strict";
 
 document.addEventListener("DOMContentLoaded", function () {
-    
-
   var btnJugar = document.getElementById("btn-jugar");
   btnJugar.addEventListener("click", function () {
     mostrarPantalla("pantalla-dificultad");
@@ -29,21 +27,21 @@ document.addEventListener("DOMContentLoaded", function () {
   btnFacil.addEventListener("click", function () {
     mostrarPantalla("pantalla-juego");
     empezarJuego(8, 8, 10);
-    dibujarTablero(8,8);
+    dibujarTablero(8, 8);
   });
 
   var btnMedio = document.getElementById("btn-medio");
   btnMedio.addEventListener("click", function () {
     mostrarPantalla("pantalla-juego");
     empezarJuego(12, 12, 25);
-    dibujarTablero(12,12);
+    dibujarTablero(12, 12);
   });
 
   var btnDificil = document.getElementById("btn-dificil");
   btnDificil.addEventListener("click", function () {
     mostrarPantalla("pantalla-juego");
-    empezarJuego(16,16,40);
-    dibujarTablero(16,16);
+    empezarJuego(16, 16, 40);
+    dibujarTablero(16, 16);
   });
 
   var btnDificultadPersonalizada = document.getElementById(
@@ -74,25 +72,32 @@ function mostrarPantalla(idPantalla) {
   document.getElementById(idPantalla).classList.add("pantalla-activa");
 }
 
-
 function dibujarTablero(x, y) {
-    var tablero = document.getElementById('tablero');
-    
-    tablero.innerHTML = '';//i
+  var tablero = document.getElementById("tablero");
 
-    for (var i = 0; i < x; i++) {
-        var divFila = document.createElement("div");
-        divFila.classList.add('fila-tablero'); 
-        
-        for (var j = 0; j < y; j++) {
-            var btnCelda = document.createElement('button'); 
-            btnCelda.setAttribute("data-x", i);
-            btnCelda.setAttribute("data-y", j);
+  tablero.innerHTML = "";
 
-            // btnCelda.innerText = 'x';
-                        
-            divFila.appendChild(btnCelda); 
-        }
-        tablero.appendChild(divFila);
+  for (var i = 0; i < x; i++) {
+    var divFila = document.createElement("div");
+    divFila.classList.add("fila-tablero");
+
+    for (var j = 0; j < y; j++) {
+      var btnCelda = document.createElement("button");
+      btnCelda.classList.add('celda');
+      btnCelda.setAttribute("data-x", i);
+      btnCelda.setAttribute("data-y", j);
+      btnCelda.addEventListener("click", function () {
+        var x = parseInt(this.getAttribute("data-x"));
+        var y = parseInt(this.getAttribute("data-y"));
+        presionarCelda(x, y);
+      });
+
+    //   btnCelda.innerText = "x";
+      divFila.appendChild(btnCelda);
     }
+    tablero.appendChild(divFila);
+  }
 }
+
+
+
