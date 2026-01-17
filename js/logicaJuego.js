@@ -1,6 +1,7 @@
 "use strict";
 
 var tablero;
+var cantidadMinas;
 
 function crearTablero(x, y) {
   var tablero = [];
@@ -61,34 +62,53 @@ function minasVecinas(tablero, x, y) {
 }
 
 function expandir(tablero, x, y) {
+  //verificar si esta abierta
   if (tablero[x][y].abierta === true) {
     return;
   }
-
-  if (tablero[x][y].cantMinas !== 0) {
-    tablero[x][y].abierta = true;
-  } else {
-    for (var i = x - 1; i <= x + 1; i++) {
-      for (var j = y - 1; j <= y + 1; j++) {
-        if (i === x && j === y) {
-          continue;
-        }
-
-        if (tablero[i] === undefined || tablero[i][j] === undefined) {
-          continue;
-        }
-
-        expandir(tablero, i, j);
-      }
+  //verificar que este dentro de los limites
+  if (tablero[x] === undefined || tablero[x][y] === undefined) {
+        return;
     }
-  }
+  //abro la celda y la verificacion de si es una mina la hago fuera, antes de llamar la funcion
+  tablero[x][y].abierta = true;
+
+  cantidad = minasVecinas(tablero, x, y);
+  tablero[x][y].minasVecinas = cantidad;
+
+  //si tiene minas vecinas evito que se siga expandiendo  
+  if (cantidad !== 0) {
+        return;
+    }
+  
+    for (i = x - 1; i <= x + 1; i++) {
+        for (j = y - 1; j <= y + 1; j++) {
+            if (i === x && j === y) {
+                continue;
+            }
+
+            expandir(tablero, i, j);
+        }
+    }
 }
 
-function empezarJuego(x,y,cantidadMinas){
+
+function empezarJuego(x,y,cantMinas){
     tablero = crearTablero(x,y);
+    cantidadMinas = cantMinas;
     colocarMina(cantidadMinas,tablero);
 };
 
 function presionarCelda(x,y){
-    // console.log(x,y);
+    console.log(x,y);
+    console.log(cantidadMinas);
+
+    if(tablero[x][y].tieneMina){
+      console.log('perdiste');  
+    } else {
+      expandir(tablero,x,y);
+    }
+
+    ;
+    
 };

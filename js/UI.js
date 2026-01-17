@@ -92,7 +92,8 @@ function dibujarTablero(x, y) {
         presionarCelda(x, y);
       });
 
-    //   btnCelda.innerText = "x";
+      btnCelda.innerText = "x"; // ----------- borrar
+
       divFila.appendChild(btnCelda);
     }
     tablero.appendChild(divFila);
