@@ -83,13 +83,13 @@ function dibujarTablero(x, y) {
 
     for (var j = 0; j < y; j++) {
       var btnCelda = document.createElement("button");
-      btnCelda.classList.add('celda');
+      btnCelda.classList.add("celda");
       btnCelda.setAttribute("data-x", i);
       btnCelda.setAttribute("data-y", j);
       btnCelda.addEventListener("click", function () {
         var x = parseInt(this.getAttribute("data-x"));
         var y = parseInt(this.getAttribute("data-y"));
-        presionarCelda(x, y);
+        presionarCeldaUI(x, y);
       });
 
       btnCelda.innerText = "x"; // ----------- borrar
@@ -100,5 +100,37 @@ function dibujarTablero(x, y) {
   }
 }
 
+function presionarCeldaUI(x, y) {
+  var resultado = presionarCelda(x, y);
 
+  switch (resultado.estado) {
+    case "siguienteTurno":
+      revelarCasillasUI(resultado.casillasARevelar);
+      break;
 
+    case "gameOver":
+      console.log("perdiste");
+      break;
+  }
+}
+
+function revelarCasillasUI(casillas) {
+  var btnCelda;
+
+  for (var i = 0; i < casillas.length; i++) {
+    var x = casillas[i].x;
+    var y = casillas[i].y;
+
+    btnCelda = document.querySelector(
+      '[data-x="' + x + '"][data-y="' + y + '"]'
+    );
+
+    btnCelda.disabled = true;
+
+    if (tablero[x][y].minasVecinas > 0) {
+      btnCelda.innerText = tablero[x][y].minasVecinas;
+    } else {
+      btnCelda.innerText = "-";
+    }
+  }
+}

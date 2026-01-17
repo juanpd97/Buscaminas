@@ -61,54 +61,61 @@ function minasVecinas(tablero, x, y) {
   return contador;
 }
 
-function expandir(tablero, x, y) {
-  //verificar si esta abierta
-  if (tablero[x][y].abierta === true) {
+function expandir(tablero, x, y, celdasReveladas) {
+  var cantidad;
+
+  // checkear Límites
+  if (tablero[x] === undefined || tablero[x][y] === undefined) {
     return;
   }
-  //verificar que este dentro de los limites
-  if (tablero[x] === undefined || tablero[x][y] === undefined) {
-        return;
-    }
-  //abro la celda y la verificacion de si es una mina la hago fuera, antes de llamar la funcion
+
+  //checkear que no sea mina
+  if (tablero[x][y].tieneMina) {
+    return;
+  }
+
+  // no reabrir
+  if (tablero[x][y].abierta) {
+    return;
+  }
+
+  //abrir celda y agregar al vector para luego la UI sepa que casillas abrir
   tablero[x][y].abierta = true;
+  celdasReveladas.push({ x: x, y: y });
 
   cantidad = minasVecinas(tablero, x, y);
   tablero[x][y].minasVecinas = cantidad;
 
-  //si tiene minas vecinas evito que se siga expandiendo  
   if (cantidad !== 0) {
-        return;
-    }
-  
-    for (i = x - 1; i <= x + 1; i++) {
-        for (j = y - 1; j <= y + 1; j++) {
-            if (i === x && j === y) {
-                continue;
-            }
+    return;
+  }
 
-            expandir(tablero, i, j);
-        }
+  // expandir casillas vecinas
+  for (var i = x - 1; i <= x + 1; i++) {
+    for (var j = y - 1; j <= y + 1; j++) {
+      if (i === x && j === y) continue;
+      expandir(tablero, i, j, celdasReveladas);
     }
+  }
 }
 
+function empezarJuego(x, y, cantMinas) {
+  tablero = crearTablero(x, y);
+  cantidadMinas = cantMinas;
+  colocarMina(cantidadMinas, tablero);
+}
 
-function empezarJuego(x,y,cantMinas){
-    tablero = crearTablero(x,y);
-    cantidadMinas = cantMinas;
-    colocarMina(cantidadMinas,tablero);
-};
+function presionarCelda(x, y) {
+  var celdasReveladas = [];
 
-function presionarCelda(x,y){
-    console.log(x,y);
-    console.log(cantidadMinas);
+  if (tablero[x][y].tieneMina) {
+    return { estado: "gameOver" };
+  }
 
-    if(tablero[x][y].tieneMina){
-      console.log('perdiste');  
-    } else {
-      expandir(tablero,x,y);
-    }
+  expandir(tablero, x, y, celdasReveladas);
 
-    ;
-    
-};
+  return {
+    estado: "siguienteTurno",
+    casillasARevelar: celdasReveladas,
+  };
+}
