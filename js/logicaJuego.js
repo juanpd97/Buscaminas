@@ -74,6 +74,11 @@ function expandir(tablero, x, y, celdasReveladas) {
     return;
   }
 
+  //checkae que no tenga bandera
+  if (tablero[x][y].bandera === true) {
+    return;
+  }
+
   // no reabrir
   if (tablero[x][y].abierta) {
     return;
@@ -108,14 +113,27 @@ function empezarJuego(x, y, cantMinas) {
 function presionarCelda(x, y) {
   var celdasReveladas = [];
 
-  if (tablero[x][y].tieneMina) {
-    return { estado: "gameOver" };
+  if (tablero[x][y].bandera !== true) {
+    if (tablero[x][y].tieneMina) {
+      return { estado: "gameOver" };
+    }
+
+    if (tablero[x][y].bandera === false) {
+      expandir(tablero, x, y, celdasReveladas);
+
+      return {
+        estado: "siguienteTurno",
+        casillasARevelar: celdasReveladas,
+      };
+    }
   }
+  return {};
+}
 
-  expandir(tablero, x, y, celdasReveladas);
-
-  return {
-    estado: "siguienteTurno",
-    casillasARevelar: celdasReveladas,
-  };
+function bandera(x, y) {
+  tablero[x][y].bandera = !tablero[x][y].bandera;
+  return !tablero[x][y].bandera;
+}
+function abierta(x, y) {
+  return tablero[x][y].abierta;
 }

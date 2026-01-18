@@ -91,6 +91,12 @@ function dibujarTablero(x, y) {
         var y = parseInt(this.getAttribute("data-y"));
         presionarCeldaUI(x, y);
       });
+      btnCelda.addEventListener("contextmenu", function (e) {
+        e.preventDefault();
+        var x = parseInt(this.getAttribute("data-x"));
+        var y = parseInt(this.getAttribute("data-y"));
+        banderaUI(x, y);
+      });
 
       btnCelda.innerText = "x"; // ----------- borrar
 
@@ -110,6 +116,9 @@ function presionarCeldaUI(x, y) {
 
     case "gameOver":
       console.log("perdiste");
+      break;
+      
+    default:
       break;
   }
 }
@@ -132,5 +141,21 @@ function revelarCasillasUI(casillas) {
     } else {
       btnCelda.innerText = "-";
     }
+  }
+}
+
+function banderaUI(x, y) {
+  if (bandera(x, y) && abierta(x, y) !== true) {
+    var btnCelda;
+    btnCelda = document.querySelector(
+      '[data-x="' + x + '"][data-y="' + y + '"]'
+    );
+    btnCelda.innerText = "x"; // ------------
+  } else if (abierta(x, y) !== true) {
+    var btnCelda;
+    btnCelda = document.querySelector(
+      '[data-x="' + x + '"][data-y="' + y + '"]'
+    );
+    btnCelda.innerText = "B"; // ------------
   }
 }
