@@ -127,13 +127,17 @@ function presionarCelda(x, y) {
       };
     }
   }
-  return {};
+  return "sinCambio";
 }
 
-function bandera(x, y) {
+function alternarBandera(x, y) {
+  if (tablero[x][y].abierta === true) {
+    return { estado: "sinCambio" };
+  }
+
   tablero[x][y].bandera = !tablero[x][y].bandera;
-  return !tablero[x][y].bandera;
-}
-function abierta(x, y) {
-  return tablero[x][y].abierta;
+
+  return {
+    estado: tablero[x][y].bandera ? "banderaColocada" : "banderaQuitada",
+  };
 }

@@ -95,7 +95,7 @@ function dibujarTablero(x, y) {
         e.preventDefault();
         var x = parseInt(this.getAttribute("data-x"));
         var y = parseInt(this.getAttribute("data-y"));
-        banderaUI(x, y);
+        banderaUI(x, y, this);
       });
 
       btnCelda.innerText = "x"; // ----------- borrar
@@ -117,7 +117,9 @@ function presionarCeldaUI(x, y) {
     case "gameOver":
       console.log("perdiste");
       break;
-      
+
+    case "sinCambio":
+      break;
     default:
       break;
   }
@@ -144,18 +146,20 @@ function revelarCasillasUI(casillas) {
   }
 }
 
-function banderaUI(x, y) {
-  if (bandera(x, y) && abierta(x, y) !== true) {
-    var btnCelda;
-    btnCelda = document.querySelector(
-      '[data-x="' + x + '"][data-y="' + y + '"]'
-    );
-    btnCelda.innerText = "x"; // ------------
-  } else if (abierta(x, y) !== true) {
-    var btnCelda;
-    btnCelda = document.querySelector(
-      '[data-x="' + x + '"][data-y="' + y + '"]'
-    );
-    btnCelda.innerText = "B"; // ------------
+function banderaUI(x, y, boton) {
+  var resultado = alternarBandera(x, y);
+
+  switch (resultado.estado) {
+    case "banderaColocada":
+      boton.innerText = "B";
+      break;
+
+    case "banderaQuitada":
+      boton.innerText = "x";
+      break;
+
+    case "sinCambio":
+      // no hacer nada
+      break;
   }
 }
