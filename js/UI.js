@@ -1,4 +1,5 @@
 "use strict";
+var contadorMinasRestantes;
 
 document.addEventListener("DOMContentLoaded", function () {
   var btnJugar = document.getElementById("btn-jugar");
@@ -28,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarPantalla("pantalla-juego");
     empezarJuego(8, 8, 10);
     dibujarTablero(8, 8);
+    inicializarContadorBanderas(10);
   });
 
   var btnMedio = document.getElementById("btn-medio");
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarPantalla("pantalla-juego");
     empezarJuego(12, 12, 25);
     dibujarTablero(12, 12);
+    inicializarContadorBanderas(25);
   });
 
   var btnDificil = document.getElementById("btn-dificil");
@@ -42,6 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     mostrarPantalla("pantalla-juego");
     empezarJuego(16, 16, 40);
     dibujarTablero(16, 16);
+    inicializarContadorBanderas(40);
   });
 
   var btnDificultadPersonalizada = document.getElementById(
@@ -157,14 +161,27 @@ function banderaUI(x, y, boton) {
   switch (resultado.estado) {
     case "banderaColocada":
       boton.innerText = "B";
+      contadorMinasRestantes--;
+      actualizarContadorUI();
       break;
 
     case "banderaQuitada":
       boton.innerText = "x";
+      contadorMinasRestantes++;
+      actualizarContadorUI();
       break;
 
     case "sinCambio":
       // no hacer nada
       break;
   }
+}
+
+function inicializarContadorBanderas(cantMinas) {
+  contadorMinasRestantes = cantMinas;
+  actualizarContadorUI();
+}
+function actualizarContadorUI() {
+  var span = document.getElementById("contador-minas");
+  span.innerText = "Minas: " + contadorMinasRestantes;
 }
