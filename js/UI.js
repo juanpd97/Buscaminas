@@ -107,6 +107,7 @@ function dibujarTablero(x, y) {
 }
 
 function presionarCeldaUI(x, y) {
+  console.log("celdasRestantes: ", celdasRestantes);
   var resultado = presionarCelda(x, y);
 
   switch (resultado.estado) {
@@ -119,6 +120,10 @@ function presionarCeldaUI(x, y) {
       break;
 
     case "sinCambio":
+      break;
+    case "victoria":
+      revelarCasillasUI(resultado.casillasARevelar);
+      console.log("ganaste :)");
       break;
     default:
       break;

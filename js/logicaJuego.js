@@ -2,6 +2,7 @@
 
 var tablero;
 var cantidadMinas;
+var celdasRestantes;
 
 function crearTablero(x, y) {
   var tablero = [];
@@ -88,6 +89,8 @@ function expandir(tablero, x, y, celdasReveladas) {
   tablero[x][y].abierta = true;
   celdasReveladas.push({ x: x, y: y });
 
+  celdasRestantes--;
+
   cantidad = minasVecinas(tablero, x, y);
   tablero[x][y].minasVecinas = cantidad;
 
@@ -106,6 +109,7 @@ function expandir(tablero, x, y, celdasReveladas) {
 
 function empezarJuego(x, y, cantMinas) {
   tablero = crearTablero(x, y);
+  celdasRestantes = x * y - cantMinas;
   cantidadMinas = cantMinas;
   colocarMina(cantidadMinas, tablero);
 }
@@ -113,21 +117,27 @@ function empezarJuego(x, y, cantMinas) {
 function presionarCelda(x, y) {
   var celdasReveladas = [];
 
-  if (tablero[x][y].bandera !== true) {
-    if (tablero[x][y].tieneMina) {
-      return { estado: "gameOver" };
-    }
-
-    if (tablero[x][y].bandera === false) {
-      expandir(tablero, x, y, celdasReveladas);
-
-      return {
-        estado: "siguienteTurno",
-        casillasARevelar: celdasReveladas,
-      };
-    }
+  if (tablero[x][y].bandera === true || tablero[x][y].abierta === true) {
+    return { estado: "sinCambio" };
   }
-  return "sinCambio";
+
+  if (tablero[x][y].tieneMina === true) {
+    return { estado: "gameOver" };
+  }
+
+  expandir(tablero, x, y, celdasReveladas);
+
+  if (celdasRestantes === 0) {
+    return {
+      estado: "victoria",
+      casillasARevelar: celdasReveladas,
+    };
+  }
+
+  return {
+    estado: "siguienteTurno",
+    casillasARevelar: celdasReveladas,
+  };
 }
 
 function alternarBandera(x, y) {
