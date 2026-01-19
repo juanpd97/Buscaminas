@@ -1,5 +1,6 @@
 "use strict";
 var contadorMinasRestantes;
+var jugando;
 
 document.addEventListener("DOMContentLoaded", function () {
   var btnJugar = document.getElementById("btn-jugar");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     empezarJuego(8, 8, 10);
     dibujarTablero(8, 8);
     inicializarContadorBanderas(10);
+    jugando = true;
   });
 
   var btnMedio = document.getElementById("btn-medio");
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     empezarJuego(12, 12, 25);
     dibujarTablero(12, 12);
     inicializarContadorBanderas(25);
+    jugando = true;
   });
 
   var btnDificil = document.getElementById("btn-dificil");
@@ -46,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     empezarJuego(16, 16, 40);
     dibujarTablero(16, 16);
     inicializarContadorBanderas(40);
+    jugando = true;
   });
 
   var btnDificultadPersonalizada = document.getElementById(
@@ -111,6 +115,10 @@ function dibujarTablero(x, y) {
 }
 
 function presionarCeldaUI(x, y) {
+  if (jugando === false) {
+    return;
+  }
+
   console.log("celdasRestantes: ", celdasRestantes);
   var resultado = presionarCelda(x, y);
 
@@ -121,6 +129,7 @@ function presionarCeldaUI(x, y) {
 
     case "gameOver":
       console.log("perdiste");
+      jugando = false;
       break;
 
     case "sinCambio":
@@ -128,6 +137,7 @@ function presionarCeldaUI(x, y) {
     case "victoria":
       revelarCasillasUI(resultado.casillasARevelar);
       console.log("ganaste :)");
+      jugando = false;
       break;
     default:
       break;
@@ -156,6 +166,10 @@ function revelarCasillasUI(casillas) {
 }
 
 function banderaUI(x, y, boton) {
+  if (jugando === false) {
+    return;
+  }
+
   var resultado = alternarBandera(x, y);
 
   switch (resultado.estado) {
