@@ -1,6 +1,11 @@
 "use strict";
 var contadorMinasRestantes;
 var jugando;
+var configuracionJuego = {
+  x: 0,
+  y: 0,
+  cantMinas: 0,
+};
 
 document.addEventListener("DOMContentLoaded", function () {
   var btnJugar = document.getElementById("btn-jugar");
@@ -27,29 +32,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var btnFacil = document.getElementById("btn-facil");
   btnFacil.addEventListener("click", function () {
-    mostrarPantalla("pantalla-juego");
-    empezarJuego(8, 8, 10);
-    dibujarTablero(8, 8);
-    inicializarContadorBanderas(10);
-    jugando = true;
+    empezarJuegoUI(8, 8, 10);
   });
 
   var btnMedio = document.getElementById("btn-medio");
   btnMedio.addEventListener("click", function () {
-    mostrarPantalla("pantalla-juego");
-    empezarJuego(12, 12, 25);
-    dibujarTablero(12, 12);
-    inicializarContadorBanderas(25);
-    jugando = true;
+    empezarJuegoUI(12, 12, 25);
   });
 
   var btnDificil = document.getElementById("btn-dificil");
   btnDificil.addEventListener("click", function () {
-    mostrarPantalla("pantalla-juego");
-    empezarJuego(16, 16, 40);
-    dibujarTablero(16, 16);
-    inicializarContadorBanderas(40);
-    jugando = true;
+    empezarJuegoUI(16, 16, 40);
   });
 
   var btnDificultadPersonalizada = document.getElementById(
@@ -65,8 +58,26 @@ document.addEventListener("DOMContentLoaded", function () {
   btnVolverDificultadDesdePersonalizado.addEventListener("click", function () {
     mostrarPantalla("pantalla-dificultad");
   });
+
+  var btnReiniciar = document.getElementById("btn-reiniciar");
+
+  btnReiniciar.addEventListener("click", function () {
+    empezarJuegoUI(
+      configuracionJuego.x,
+      configuracionJuego.y,
+      configuracionJuego.cantMinas
+    );
+  });
 });
 // ------------------------------------
+function empezarJuegoUI(x, y, cantMinas) {
+  configuracionJuego = { x: x, y: y, cantMinas: cantMinas };
+  mostrarPantalla("pantalla-juego");
+  empezarJuego(x, y, cantMinas);
+  dibujarTablero(x, y);
+  inicializarContadorBanderas(cantMinas);
+  jugando = true;
+}
 
 function mostrarPantalla(idPantalla) {
   //i
