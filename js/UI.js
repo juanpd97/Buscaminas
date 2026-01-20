@@ -128,6 +128,7 @@ function presionarCeldaUI(x, y) {
       break;
 
     case "gameOver":
+      revelarMinasUI(resultado.minas);
       console.log("perdiste");
       jugando = false;
       break;
@@ -198,4 +199,21 @@ function inicializarContadorBanderas(cantMinas) {
 function actualizarContadorUI() {
   var span = document.getElementById("contador-minas");
   span.innerText = "Minas: " + contadorMinasRestantes;
+}
+
+function revelarMinasUI(minas) {
+  var btnCelda;
+
+  for (var i = 0; i < minas.length; i++) {
+    var x = minas[i].x;
+    var y = minas[i].y;
+
+    btnCelda = document.querySelector(
+      '[data-x="' + x + '"][data-y="' + y + '"]'
+    );
+
+    btnCelda.innerText = "o";
+    btnCelda.disabled = true;
+    // btnCelda.classList.add("celda-mina");
+  }
 }

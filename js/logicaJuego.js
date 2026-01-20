@@ -122,7 +122,10 @@ function presionarCelda(x, y) {
   }
 
   if (tablero[x][y].tieneMina === true) {
-    return { estado: "gameOver" };
+    return {
+      estado: "gameOver",
+      minas: obtenerMinas(),
+    };
   }
 
   expandir(tablero, x, y, celdasReveladas);
@@ -150,4 +153,18 @@ function alternarBandera(x, y) {
   return {
     estado: tablero[x][y].bandera ? "banderaColocada" : "banderaQuitada",
   };
+}
+
+function obtenerMinas() {
+  var minas = [];
+
+  for (var i = 0; i < tablero.length; i++) {
+    for (var j = 0; j < tablero[i].length; j++) {
+      if (tablero[i][j].tieneMina === true) {
+        minas.push({ x: i, y: j });
+      }
+    }
+  }
+
+  return minas;
 }
