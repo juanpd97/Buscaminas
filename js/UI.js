@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var btnVolverInicioDesdeRanking = document.getElementById(
-    "btn-volver-inicio-desde-ranking"
+    "btn-volver-inicio-desde-ranking",
   );
   btnVolverInicioDesdeRanking.addEventListener("click", function () {
     mostrarPantalla("pantalla-inicio");
@@ -46,14 +46,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var btnDificultadPersonalizada = document.getElementById(
-    "btn-dificultad-personalizada"
+    "btn-dificultad-personalizada",
   );
   btnDificultadPersonalizada.addEventListener("click", function () {
     mostrarPantalla("pantalla-personalizado");
   });
 
   var btnVolverDificultadDesdePersonalizado = document.getElementById(
-    "btn-volver-dificultad-desde-personalizado"
+    "btn-volver-dificultad-desde-personalizado",
   );
   btnVolverDificultadDesdePersonalizado.addEventListener("click", function () {
     mostrarPantalla("pantalla-dificultad");
@@ -65,9 +65,11 @@ document.addEventListener("DOMContentLoaded", function () {
     empezarJuegoUI(
       configuracionJuego.x,
       configuracionJuego.y,
-      configuracionJuego.cantMinas
+      configuracionJuego.cantMinas,
     );
   });
+
+  var cronometro = document.getElementById("cronometro");
 });
 // ------------------------------------
 function empezarJuegoUI(x, y, cantMinas) {
@@ -77,6 +79,7 @@ function empezarJuegoUI(x, y, cantMinas) {
   dibujarTablero(x, y);
   inicializarContadorBanderas(cantMinas);
   jugando = true;
+  reiniciarCronometro();
 }
 
 function mostrarPantalla(idPantalla) {
@@ -130,6 +133,9 @@ function presionarCeldaUI(x, y) {
     return;
   }
 
+  if (!cronometroIniciado) {
+    iniciarCronometro();
+  }
   console.log("celdasRestantes: ", celdasRestantes);
   var resultado = presionarCelda(x, y);
 
@@ -142,6 +148,7 @@ function presionarCeldaUI(x, y) {
       revelarMinasUI(resultado.minas);
       console.log("perdiste");
       jugando = false;
+      pausarCronometro();
       break;
 
     case "sinCambio":
@@ -150,6 +157,7 @@ function presionarCeldaUI(x, y) {
       revelarCasillasUI(resultado.casillasARevelar);
       console.log("ganaste :)");
       jugando = false;
+      pausarCronometro();
       break;
     default:
       break;
@@ -164,7 +172,7 @@ function revelarCasillasUI(casillas) {
     var y = casillas[i].y;
 
     btnCelda = document.querySelector(
-      '[data-x="' + x + '"][data-y="' + y + '"]'
+      '[data-x="' + x + '"][data-y="' + y + '"]',
     );
 
     btnCelda.disabled = true;
@@ -220,11 +228,41 @@ function revelarMinasUI(minas) {
     var y = minas[i].y;
 
     btnCelda = document.querySelector(
-      '[data-x="' + x + '"][data-y="' + y + '"]'
+      '[data-x="' + x + '"][data-y="' + y + '"]',
     );
 
     btnCelda.innerText = "o";
     btnCelda.disabled = true;
     // btnCelda.classList.add("celda-mina");
   }
+}
+
+//------ cronometro
+var segundos = 0;
+var intervalo = null;
+var cronometroIniciado = false;
+function actualizarCronometro() {
+  cronometro.innerHTML = "Tiempo: " + segundos;
+}
+
+function iniciarCronometro() {
+  cronometroIniciado = true;
+  if (!intervalo) {
+    intervalo = setInterval(function () {
+      segundos++;
+      actualizarCronometro();
+    }, 1000);
+  }
+}
+
+function pausarCronometro() {
+  clearInterval(intervalo);
+  intervalo = null;
+}
+
+function reiniciarCronometro() {
+  pausarCronometro();
+  segundos = 0;
+  cronometroIniciado = false;
+  actualizarCronometro();
 }
