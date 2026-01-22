@@ -70,6 +70,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   var cronometro = document.getElementById("cronometro");
+
+  var btnJugarPersonalizado = document.getElementById(
+    "btn-jugar-personalizado",
+  );
+  btnJugarPersonalizado.addEventListener("click", function () {
+    jugarPersonalizado();
+  });
 });
 // ------------------------------------
 function empezarJuegoUI(x, y, cantMinas) {
@@ -265,4 +272,41 @@ function reiniciarCronometro() {
   segundos = 0;
   cronometroIniciado = false;
   actualizarCronometro();
+}
+
+// ---- personalizado
+function jugarPersonalizado() {
+  var inputFilas = document.getElementById("input-filas");
+  var inputColumnas = document.getElementById("input-columnas");
+  var inputMinas = document.getElementById("input-minas");
+
+  var filas = parseInt(inputFilas.value, 10);
+  var columnas = parseInt(inputColumnas.value, 10);
+  var minas = parseInt(inputMinas.value, 10);
+
+  var totalCeldas = filas * columnas;
+
+  if (minas >= totalCeldas) {
+    alert("La cantidad de minas debe ser menor al total de celdas");
+    return;
+  }
+  if (isNaN(filas) || isNaN(columnas) || isNaN(minas)) {
+    alert("Todos los valores deben ser numéricos");
+    return;
+  }
+  if (filas < 2 || columnas < 2) {
+    alert("Filas y columnas deben ser al menos 5");
+    return;
+  }
+
+  if (filas > 20 || columnas > 20) {
+    alert("Máximo permitido: 20 x 20");
+    return;
+  }
+  if (minas < 1) {
+    alert("Debe haber al menos una mina");
+    return;
+  }
+
+  empezarJuegoUI(filas, columnas, minas);
 }
