@@ -5,14 +5,19 @@
   padding: 0;
 }
 
-/* .pantalla {
-  display: none;
+html {
+  font-size: 20px;
 }
 
-.pantalla-activa {
-  display: block;
-} */
+button {
+  font-size: 18px;
+  padding: 12px 24px;
+  margin: 5px;
+}
 
+.menu-titulo {
+  font-size: 49px;
+}
 /*---------- basico------------------- */
 
 /* Centrado total de la aplicación */
@@ -26,7 +31,7 @@ body {
 
 /* Estructura de las pantallas */
 .pantalla {
-  display: none; /* Se oculta por defecto */
+  display: none;
   flex-direction: column;
   align-items: center;
 }
@@ -68,4 +73,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* tablero */
+#pantalla-juego {
+  background-color: rgb(221, 221, 221);
+}
+.barra-juego {
+  background-color: rgba(144, 144, 144, 0.521);
+}
+#pantalla-juego button {
+  height: 40px;
+  width: 40px;
+}
+
+.mensaje-error {
+  color: red;
 }

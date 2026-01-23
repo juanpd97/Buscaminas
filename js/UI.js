@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "btn-dificultad-personalizada",
   );
   btnDificultadPersonalizada.addEventListener("click", function () {
+    var errorJuegoPersonalizado = document.getElementById(
+      "error-juego-personalizado",
+    );
+    errorJuegoPersonalizado.textContent = "";
     mostrarPantalla("pantalla-personalizado");
   });
 

@@ -73,7 +73,6 @@ function presionarCeldaUI(x, y) {
       console.log("perdiste");
       jugando = false;
       pausarCronometro();
-      // LLAMADA AL MODAL
       modalDerrota();
       break;
 
@@ -84,6 +83,7 @@ function presionarCeldaUI(x, y) {
       console.log("ganaste :)");
       jugando = false;
       pausarCronometro();
+      modalVictoria();
       break;
     default:
       break;
@@ -164,9 +164,17 @@ function revelarMinasUI(minas) {
 }
 
 function jugarPersonalizado() {
+  var errorJuegoPersonalizado = document.getElementById(
+    "error-juego-personalizado",
+  );
+  errorJuegoPersonalizado.textContent = "";
+
   var inputFilas = document.getElementById("input-filas");
   var inputColumnas = document.getElementById("input-columnas");
   var inputMinas = document.getElementById("input-minas");
+  var formulario = document.querySelector(
+    ".formulario-dificultad-personalizada",
+  );
 
   var filas = parseInt(inputFilas.value, 10);
   var columnas = parseInt(inputColumnas.value, 10);
@@ -174,25 +182,41 @@ function jugarPersonalizado() {
 
   var totalCeldas = filas * columnas;
 
-  if (minas >= totalCeldas) {
-    alert("La cantidad de minas debe ser menor al total de celdas");
-    return;
+  // Buscar o crear elemento de error
+  if (!errorJuegoPersonalizado) {
+    errorJuegoPersonalizado = document.createElement("p");
+    errorJuegoPersonalizado.id = "error-personalizado";
+    errorJuegoPersonalizado.style.color = "red";
+    errorJuegoPersonalizado.style.fontSize = "16px";
+    errorJuegoPersonalizado.style.marginTop = "10px";
+    formulario.appendChild(errorJuegoPersonalizado);
   }
+
   if (isNaN(filas) || isNaN(columnas) || isNaN(minas)) {
-    alert("Todos los valores deben ser numéricos");
-    return;
-  }
-  if (filas < 2 || columnas < 2) {
-    alert("Filas y columnas deben ser al menos 5");
+    errorJuegoPersonalizado.textContent =
+      "Todos los valores deben ser numéricos";
     return;
   }
 
-  if (filas > 20 || columnas > 20) {
-    alert("Máximo permitido: 20 x 20");
+  if (filas < 2 || columnas < 2) {
+    errorJuegoPersonalizado.textContent =
+      "Filas y columnas deben ser al menos 2";
     return;
   }
+
+  if (filas > 25 || columnas > 25) {
+    errorJuegoPersonalizado.textContent = "Máximo permitido: 25 x 25";
+    return;
+  }
+
   if (minas < 1) {
-    alert("Debe haber al menos una mina");
+    errorJuegoPersonalizado.textContent = "Debe haber al menos una mina";
+    return;
+  }
+
+  if (minas >= totalCeldas) {
+    errorJuegoPersonalizado.textContent =
+      "La cantidad de minas debe ser menor al total de celdas";
     return;
   }
 

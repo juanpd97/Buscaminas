@@ -71,41 +71,6 @@ function modalMenuJuego() {
   ]);
 }
 
-// function modalVictoria() {
-//   var elModal = document.getElementById("modal-juego");
-
-//   mostrarModal(
-//     "¡VICTORIA!",
-//     '<input type="text" id="input-nombre" placeholder="Ingresa tu nombre" maxlength="20">' +
-//       '<p id="error-nombre" style="color: red; font-size: 12px; margin-top: 5px;"></p>',
-//     [
-//       {
-//         texto: "Registrar",
-//         click: function () {
-//           var nombre = document.getElementById("input-nombre").value.trim();
-//           var errorMsg = document.getElementById("error-nombre");
-
-//           if (nombre.length < 3) {
-//             errorMsg.innerText = "El nombre debe tener al menos 3 caracteres.";
-//             elModal.style.display = "block";
-//             return;
-//           }
-
-//           registrarJugador(nombre);
-//         },
-//       },
-//       {
-//         texto: "Menu principal",
-//         click: function () {
-//           mostrarPantalla("pantalla-inicio");
-//         },
-//       },
-//     ],
-//   );
-
-//   document.getElementById("input-nombre").focus();
-// }
-
 function modalVictoria() {
   var elModal = document.getElementById("modal-juego");
 
