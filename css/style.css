@@ -5,12 +5,67 @@
   padding: 0;
 }
 
-.pantalla {
+/* .pantalla {
   display: none;
 }
 
 .pantalla-activa {
   display: block;
+} */
+
+/*---------- basico------------------- */
+
+/* Centrado total de la aplicación */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* --- */
+/* Estructura de las pantallas */
+.pantalla {
+  display: none; /* Se oculta por defecto */
+  flex-direction: column;
+  align-items: center;
+}
+
+.pantalla-activa {
+  display: flex;
+}
+
+/* Alineación de la barra de juego */
+.barra-juego {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+}
+
+/* Botón de menú a la izquierda */
+#btn-volver-dificultad {
+  position: absolute;
+  left: 0;
+}
+
+/* Agrupación horizontal de la info del juego */
+.info-juego {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+/* Alinea los botones de opciones en vertical */
+.menu-opciones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Alinea las etiquetas e inputs del formulario en vertical */
+.formulario-dificultad-personalizada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

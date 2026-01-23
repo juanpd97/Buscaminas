@@ -70,8 +70,15 @@ document.addEventListener("DOMContentLoaded", function () {
   btnJugarPersonalizado.addEventListener("click", function () {
     jugarPersonalizado();
   });
+
+  //boton menu
+  var btnMenuDesdeJuego = document.getElementById("btn-menu-desde-juego");
+  btnMenuDesdeJuego.addEventListener("click", function () {
+    modalMenuJuego();
+  });
 });
 // ------------------------------------
+
 function mostrarPantalla(idPantalla) {
   //i
   var pantallas = document.getElementsByClassName("pantalla");

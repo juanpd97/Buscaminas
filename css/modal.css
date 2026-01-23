@@ -1,0 +1,41 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.903);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+.modal-contenido {
+  background: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#modal-botones {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-modal {
+  margin: 5px;
+  padding: 10px;
+}
+
+#input-nombre {
+  width: 90%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+}
+
+#error-nombre {
+  color: red;
+}
