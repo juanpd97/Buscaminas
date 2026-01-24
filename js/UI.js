@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var btnRanking = document.getElementById("btn-ranking");
   btnRanking.addEventListener("click", function () {
+    filtroDificultad = "todas";
     mostrarRanking();
     mostrarPantalla("pantalla-ranking");
   });
