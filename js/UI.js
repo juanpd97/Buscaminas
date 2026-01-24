@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var btnRanking = document.getElementById("btn-ranking");
   btnRanking.addEventListener("click", function () {
+    mostrarRanking();
     mostrarPantalla("pantalla-ranking");
   });
 
@@ -25,17 +26,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
   var btnFacil = document.getElementById("btn-facil");
   btnFacil.addEventListener("click", function () {
-    empezarJuegoUI(8, 8, 10);
+    dificultad="facil";
+    empezarJuegoUI(8, 8, 10,"facil");
   });
 
   var btnMedio = document.getElementById("btn-medio");
   btnMedio.addEventListener("click", function () {
-    empezarJuegoUI(12, 12, 25);
+    dificultad="media";
+    empezarJuegoUI(12, 12, 25,"medio");
   });
 
   var btnDificil = document.getElementById("btn-dificil");
   btnDificil.addEventListener("click", function () {
-    empezarJuegoUI(16, 16, 40);
+    dificultad = "dificil";
+    empezarJuegoUI(16, 16, 40,"dificil");
   });
 
   var btnDificultadPersonalizada = document.getElementById(
@@ -59,10 +63,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var btnReiniciar = document.getElementById("btn-reiniciar");
 
   btnReiniciar.addEventListener("click", function () {
+    
     empezarJuegoUI(
       configuracionJuego.x,
       configuracionJuego.y,
-      configuracionJuego.cantMinas,
+      configuracionJuego.cantMinas
     );
   });
 
@@ -94,3 +99,5 @@ function mostrarPantalla(idPantalla) {
 
   document.getElementById(idPantalla).classList.add("pantalla-activa");
 }
+
+
