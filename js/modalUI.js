@@ -35,6 +35,7 @@ function modalDerrota() {
           configuracionJuego.x,
           configuracionJuego.y,
           configuracionJuego.cantMinas,
+          dificultad,
         );
       },
     },
@@ -120,11 +121,12 @@ function modalVictoria() {
             errorMsg.innerText =
               "El nombre solo puede contener letras, números y espacios.";
             elModal.style.display = "block";
-            inputNombre.focus();
             return;
           }
 
-          registrarJugador(nombre);
+          // console.log(nombre, " - ",segundos,'-',dificultad);
+          guardarPartida(nombre, segundos, dificultad);
+          return;
         },
       },
       {

@@ -2,13 +2,15 @@
 
 var contadorMinasRestantes;
 var jugando;
+var dificultad;
 var configuracionJuego = {
   x: 0,
   y: 0,
   cantMinas: 0,
 };
 
-function empezarJuegoUI(x, y, cantMinas) {
+function empezarJuegoUI(x, y, cantMinas, modo) {
+  dificultad = modo;
   configuracionJuego = { x: x, y: y, cantMinas: cantMinas };
   mostrarPantalla("pantalla-juego");
   empezarJuego(x, y, cantMinas);
@@ -220,5 +222,5 @@ function jugarPersonalizado() {
     return;
   }
 
-  empezarJuegoUI(filas, columnas, minas);
+  empezarJuegoUI(filas, columnas, minas, "personalizado");
 }
