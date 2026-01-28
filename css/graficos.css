@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+* {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+#video-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que el video cubra todo sin deformarse */
+  z-index: -1; /* Lo manda al fondo de todo */
+}
+
+button {
+  background-image: url("/img/botonBlanco.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+
+  font-size: 25px;
+  background-color: transparent;
+  width: 220px;
+  height: 90px;
+}
+
+/* ---------------------- MODAL */
+.modal-contenido {
+  background-image: url("/img/hojaCuadriculada.svg");
+  width: 35%;
+}
+#modal-titulo {
+  font-weight: 600;
+  font-size: 30px;
+}
+#modal-botones {
+  align-items: center;
+}
+
+/* ----------------------TABLERO */
+.barra-juego {
+  background-color: #ffffff00;
+  margin-top: 5px;
+}
+#btn-menu-desde-juego {
+  max-width: 150px;
+}
+
+#juego-contenedor {
+  background-image: url("/img/hojaCuadriculada.svg");
+}
+.info-juego{
+    gap: 25px;
+}
+
+/* ---------- BOTON REINICIAR */
+
+ #btn-reiniciar {
+    background-image: none;
+    display: flex;
+    align-items: center;
+ }
+ .imagen-caritaFeliz{
+    height: 100px;
+    display: block;
+ }
+ .texto-caritaFeliz{
+    display: none;
+ }
+
+/* -------------Contador de minas restantes */
+
+.contenedor-contador-minas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-style: dashed;
+  padding: 0% 3%;
+  border-color: rgba(124, 124, 124, 0.769);
+  /* background-color: rgba(156, 156, 154, 0.118); */
+  /* margin-right: 25%; */
+}
+.icono-minas {
+  display: block;
+  width: 100px;
+  height: 75px;
+}
+.texto-minas {
+  display: none;
+}
+
+/* ------------- cronometro */
+.contenedor-cronometro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-style: dashed;
+  padding: 0% 3%;
+  border-color: rgba(124, 124, 124, 0.769);
+  /* margin-left: 25%; */
+}
+
+.icono-tiempo {
+  display: inline-block;
+  width: 100px;
+  height: 75px;
+  margin-right: 6px;
+
+  background-image: url("../img/reloj.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.texto-tiempo {
+  display: none;
+}
+
+
+
+/* --------------- CELDAS */
+.celda-abierta {
+  background-image: url("/img/bolloPapelBlanco.svg");
+  color: #13131300;
+}
+.celda-cerrada {
+  background-image: url("/img/cuadradoBlacno.svg");
+  color: #13131300;
+}
+.celda-mina {
+  background-image: url("/img/mina.svg");
+  color: #13131300;
+}
+.celda {
+  font-size: 20px;
+}
+.celda-minas-vecinas-1 {
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  background-image: none;
+}
+.celda-minas-vecinas-2 {
+  color: rgb(2, 119, 20);
+  font-weight: 700;
+  background-image: none;
+}
+.celda-minas-vecinas-3 {
+  color: rgb(14, 14, 255);
+  font-weight: 700;
+  background-image: none;
+}
+.celda-minas-vecinas-4 {
+  color: rgb(255, 0, 0);
+  font-weight: 1000;
+  background-image: none;
+}
+.celda-bandera {
+  background-image: url("/img/bandera.svg");
+  color: #13131300;
+}
+
+/* ------------- TABLERO */
+
+#tablero {
+  margin-top:15px;
+  max-width: 90%;
+  max-height: calc(100vh - 230px);
+  overflow: auto;
+  display: inline-block;
+}

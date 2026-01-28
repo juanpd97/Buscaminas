@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- css -->
-    <link rel="stylesheet" href="./css/graficos.css" />
     <link rel="stylesheet" href="./css/modal.css" />
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/graficos.css" />
     <!-- js -->
     <script src="./js/logicaJuego.js"></script>
     <script src="./js/cronometro.js"></script>
@@ -84,9 +84,24 @@
             <button id="btn-menu-desde-juego">☰</button>
 
             <div class="info-juego">
-              <span id="contador-minas">banderas: 0</span>
-              <button id="btn-reiniciar">:)</button>
-              <span id="cronometro">Tiempo: 0</span>
+
+              <span class="contenedor-contador-minas">
+                <img class="icono-minas" src="./img/bandera.svg"></img>
+                <span class="texto-minas">Minas:</span>
+                <span id="contador-minas"></span>
+              </span>
+
+              <button id="btn-reiniciar">
+                <img class="imagen-caritaFeliz" src="./img/caritaFeliz.svg" alt="caritaFeliz">
+                <p class="texto-caritaFeliz">:)</p>
+              </button>
+
+              <span class="contenedor-cronometro">
+                <span class="icono-tiempo"></span>
+                <span class="texto-tiempo">Tiempo:</span>
+                <span id="cronometro"></span>
+              </span>
+              
             </div>
           </div>
 
@@ -102,5 +117,8 @@
         </div>
       </main>
     </div>
+    <video autoplay muted loop playsinline id="video-fondo">
+      <source src="./img/fondoPapelBlanco.webm" type="video/webm" />
+    </video>
   </body>
 </html>

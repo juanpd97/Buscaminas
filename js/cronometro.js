@@ -3,7 +3,7 @@ var segundos = 0;
 var intervalo = null;
 var cronometroIniciado = false;
 function actualizarCronometro() {
-  cronometro.innerHTML = "Tiempo: " + segundos;
+  cronometro.innerHTML = segundos;
 }
 
 function iniciarCronometro() {

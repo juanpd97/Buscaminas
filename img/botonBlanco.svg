@@ -1,0 +1,34 @@
+<svg width="220" height="90" viewBox="0 0 220 90" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M15,45
+       Q18,12 55,10
+       Q110,5 165,12
+       Q205,18 205,45
+       Q202,75 165,80
+       Q110,85 55,80
+       Q18,75 15,45 Z"
+    fill="#ffffff"
+    stroke="#222"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M18,46
+       Q22,18 58,15
+       Q110,10 160,16
+       Q198,22 198,46
+       Q195,70 160,75
+       Q110,80 58,74
+       Q22,70 18,46 Z"
+    fill="none"
+    stroke="#222"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.6"
+  />
+
+ 
+</svg>

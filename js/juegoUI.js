@@ -47,6 +47,7 @@ function dibujarTablero(x, y) {
       });
 
       btnCelda.innerText = "x"; // ----------- borrar
+      btnCelda.classList.add("celda-cerrada");
 
       divFila.appendChild(btnCelda);
     }
@@ -107,8 +108,29 @@ function revelarCasillasUI(casillas) {
 
     if (tablero[x][y].minasVecinas > 0) {
       btnCelda.innerText = tablero[x][y].minasVecinas;
+
+      switch (tablero[x][y].minasVecinas) {
+        case 1:
+          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.add("celda-minas-vecinas-1");
+          break;
+        case 2:
+          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.add("celda-minas-vecinas-2");
+          break;
+        case 3:
+          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.add("celda-minas-vecinas-3");
+          break;
+        default:
+          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.add("celda-minas-vecinas-4");
+          break;
+      }
     } else {
       btnCelda.innerText = "-";
+      btnCelda.classList.remove("celda-cerrada");
+      btnCelda.classList.add("celda-abierta");
     }
   }
 }
@@ -125,12 +147,14 @@ function banderaUI(x, y, boton) {
       boton.innerText = "B";
       contadorMinasRestantes--;
       actualizarContadorUI();
+      boton.classList.add("celda-bandera");
       break;
 
     case "banderaQuitada":
       boton.innerText = "x";
       contadorMinasRestantes++;
       actualizarContadorUI();
+      boton.classList.remove("celda-bandera");
       break;
 
     case "sinCambio":
@@ -145,7 +169,7 @@ function inicializarContadorBanderas(cantMinas) {
 }
 function actualizarContadorUI() {
   var span = document.getElementById("contador-minas");
-  span.innerText = "Minas: " + contadorMinasRestantes;
+  span.innerText = contadorMinasRestantes;
 }
 
 function revelarMinasUI(minas) {
@@ -161,7 +185,7 @@ function revelarMinasUI(minas) {
 
     btnCelda.innerText = "o";
     btnCelda.disabled = true;
-    // btnCelda.classList.add("celda-mina");
+    btnCelda.classList.add("celda-mina");
   }
 }
 

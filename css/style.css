@@ -20,11 +20,14 @@ body {
   background-color: #e0e0e0;
 }
 
-/*   ELEMENTOS GENERALES  */
 button {
-  font-size: 18px;
-  padding: 10px 20px;
+  font-size: 25px;
+  padding: 15px 25px;
   cursor: pointer;
+}
+
+p{
+  font-size: 25px;
 }
 
 .mensaje-error {
@@ -129,6 +132,8 @@ button {
 
   overflow: auto;
   display: inline-block;
+
+  padding: 5%;
 }
 
 .fila-tablero {
@@ -136,10 +141,10 @@ button {
 }
 
 .celda {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 50px;
 
-  border: 1px solid #777;
+  /* border: 1px solid #777; */
   background-color: #f2f2f2;
 
   display: flex;
@@ -153,6 +158,14 @@ button {
 .celda:disabled {
   background-color: #ddd;
   cursor: default;
+}
+
+
+.icono-minas {
+  display: none;
+}
+.imagen-caritaFeliz{
+  display: none;
 }
 
 /*  RESPONSIVE*/
