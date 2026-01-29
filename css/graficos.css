@@ -175,3 +175,39 @@ button {
   overflow: auto;
   display: inline-block;
 }
+
+
+th , td{
+  padding: 0px 25px;
+}
+#filtro-dificultad{
+  margin-left: 5px;
+}
+#lista-ranking {
+    background-color: rgba(223, 223, 223, 0.896);
+    padding: 20px;  
+    border-radius: 50px;
+    border-style: dotted;
+}
+
+h1{
+    background-color: rgba(223, 223, 223, 0.896);
+    padding: 20px;  
+    border-radius: 50px;
+    border-style: dotted;
+
+}
+
+
+/*  ----------------------- menu --------------*/
+.menu-titulo {
+  display: flex;
+  align-items: center;    
+  justify-content: center;  
+  gap: 10px;              
+}
+
+.menu-titulo .icono-titulo-menu-jugar{
+  height: 70px;
+}
+

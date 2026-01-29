@@ -1,124 +1,138 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- css -->
-    <link rel="stylesheet" href="./css/modal.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/graficos.css" />
-    <!-- js -->
-    <script src="./js/logicaJuego.js"></script>
-    <script src="./js/cronometro.js"></script>
-    <script src="./js/juegoUI.js"></script>
-    <script src="./js/modalUI.js"></script>
-    <script src="./js/rankingUI.js"></script>
-    <script src="./js/UI.js"></script>
-    <title>Buscaminas</title>
-    <link rel="icon" href="./img//mina.svg" />
-  </head>
 
-  <body>
-    <div id="juego-contenedor">
-      <main>
-        <!-- Pantalla: Menú principal -->
-        <section id="pantalla-inicio" class="pantalla pantalla-activa">
-          <h1 class="menu-titulo">Buscaminas</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/modal.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/graficos.css" />
+  <!-- js -->
+  <script src="./js/logicaJuego.js"></script>
+  <script src="./js/cronometro.js"></script>
+  <script src="./js/juegoUI.js"></script>
+  <script src="./js/modalUI.js"></script>
+  <script src="./js/rankingUI.js"></script>
+  <script src="./js/UI.js"></script>
+  <title>Buscaminas</title>
+  <link rel="icon" href="./img//mina.svg" />
+</head>
+
+<body>
+  <div id="juego-contenedor">
+    <main>
+      <!-- Pantalla: Menú principal -->
+      <section id="pantalla-inicio" class="pantalla pantalla-activa">
+
+          <h1 class="menu-titulo">
+            <img src="./img/bandera.svg" alt="">
+            Buscaminas
+            <img src="./img/mina.svg" alt="">
+          </h1>
 
           <div class="menu-opciones">
             <button id="btn-jugar">Jugar</button>
             <button id="btn-ranking">Ranking</button>
           </div>
-        </section>
 
-        <!-- Pantalla: Selección de dificultad -->
-        <section id="pantalla-dificultad" class="pantalla">
-          <h1 class="menu-titulo">Jugar</h1>
+      </section>
 
-          <div class="menu-opciones">
-            <button id="btn-facil">Fácil</button>
-            <button id="btn-medio">Medio</button>
-            <button id="btn-dificil">Difícil</button>
-            <button id="btn-dificultad-personalizada">Personalizado</button>
-          </div>
+      <!-- Pantalla: Selección de dificultad -->
+      <section id="pantalla-dificultad" class="pantalla">
+        <h1 class="menu-titulo">
+          Jugar
+           <img class="icono-titulo-menu-jugar" src="./img/minaAbierta.svg" alt="">
+        </h1>
 
-          <button id="btn-volver-inicio">Volver</button>
-        </section>
 
-        <!-- Pantalla: Dificultad personalizada -->
-        <section id="pantalla-personalizado" class="pantalla">
-          <h1 class="menu-titulo">Personalizado</h1>
+        <div class="menu-opciones">
+          <button id="btn-facil">Fácil</button>
+          <button id="btn-medio">Medio</button>
+          <button id="btn-dificil">Difícil</button>
+          <button id="btn-dificultad-personalizada">Personalizado</button>
+        </div>
 
-          <div class="formulario-dificultad-personalizada">
-            <label for="input-filas">Filas:</label>
-            <input type="number" id="input-filas" value="2" />
+        <button id="btn-volver-inicio">Volver</button>
+      </section>
 
-            <label for="input-columnas">Columnas:</label>
-            <input type="number" id="input-columnas" value="2" />
+      <!-- Pantalla: Dificultad personalizada -->
+      <section id="pantalla-personalizado" class="pantalla">
+        <h1 class="menu-titulo">Personalizado</h1>
 
-            <label for="input-minas">Minas:</label>
-            <input type="number" id="input-minas" value="1" />
+        <div class="formulario-dificultad-personalizada">
+          <label for="input-filas">Filas:</label>
+          <input type="number" id="input-filas" value="2" />
 
-            <p id="error-juego-personalizado" class="mensaje-error"></p>
-          </div>
+          <label for="input-columnas">Columnas:</label>
+          <input type="number" id="input-columnas" value="2" />
 
-          <div class="menu-opciones">
-            <button id="btn-jugar-personalizado">Jugar</button>
-          </div>
+          <label for="input-minas">Minas:</label>
+          <input type="number" id="input-minas" value="1" />
 
-          <button id="btn-volver-dificultad-desde-personalizado">Volver</button>
-        </section>
+          <p id="error-juego-personalizado" class="mensaje-error"></p>
+        </div>
 
-        <!-- Pantalla: Ranking -->
-        <section id="pantalla-ranking" class="pantalla">
-          <h1 class="menu-titulo">Ranking</h1>
+        <div class="menu-opciones">
+          <button id="btn-jugar-personalizado">Jugar</button>
+        </div>
 
-          <div id="lista-ranking" class="lista-ranking"></div>
+        <button id="btn-volver-dificultad-desde-personalizado">Volver</button>
+      </section>
 
-          <button id="btn-volver-inicio-desde-ranking">Volver</button>
-        </section>
+      <!-- Pantalla: Ranking -->
+      <section id="pantalla-ranking" class="pantalla">
+        <h1 class="menu-titulo">Ranking
+          <div class="icono-titulo-menu"><img src="./img/trofeo.svg" alt=""></div>
+        </h1>
 
-        <!-- Pantalla: Juego -->
-        <section id="pantalla-juego" class="pantalla">
-          <div class="barra-juego">
-            <button id="btn-menu-desde-juego">☰</button>
+        <div id="lista-ranking" class="lista-ranking"></div>
 
-            <div class="info-juego">
+        <button id="btn-volver-inicio-desde-ranking">Volver</button>
+      </section>
 
-              <span class="contenedor-contador-minas">
-                <img class="icono-minas" src="./img/bandera.svg"></img>
-                <span class="texto-minas">Minas:</span>
-                <span id="contador-minas"></span>
-              </span>
+      <!-- Pantalla: Juego -->
+      <section id="pantalla-juego" class="pantalla">
+        <div class="barra-juego">
+          <button id="btn-menu-desde-juego">☰</button>
 
-              <button id="btn-reiniciar">
-                <img class="imagen-caritaFeliz" src="./img/caritaFeliz.svg" alt="caritaFeliz">
-                <p class="texto-caritaFeliz">:)</p>
-              </button>
+          <div class="info-juego">
 
-              <span class="contenedor-cronometro">
-                <span class="icono-tiempo"></span>
-                <span class="texto-tiempo">Tiempo:</span>
-                <span id="cronometro"></span>
-              </span>
-              
-            </div>
-          </div>
+            <span class="contenedor-contador-minas">
+              <img class="icono-minas" src="./img/bandera.svg"></img>
+              <span class="texto-minas">Minas:</span>
+              <span id="contador-minas"></span>
+            </span>
 
-          <div id="tablero"></div>
-        </section>
-        <!-- modal -->
-        <div id="modal-juego" class="modal">
-          <div class="modal-contenido">
-            <h2 id="modal-titulo"></h2>
-            <div id="modal-cuerpo"></div>
-            <div id="modal-botones"></div>
+            <button id="btn-reiniciar">
+              <img class="imagen-caritaFeliz" src="./img/caritaFeliz.svg" alt="caritaFeliz">
+              <p class="texto-caritaFeliz">:)</p>
+            </button>
+
+            <span class="contenedor-cronometro">
+              <span class="icono-tiempo"></span>
+              <span class="texto-tiempo">Tiempo:</span>
+              <span id="cronometro"></span>
+            </span>
+
           </div>
         </div>
-      </main>
-    </div>
-    <video autoplay muted loop playsinline id="video-fondo">
-      <source src="./img/fondoPapelBlanco.webm" type="video/webm" />
-    </video>
-  </body>
+
+        <div id="tablero"></div>
+      </section>
+      <!-- modal -->
+      <div id="modal-juego" class="modal">
+        <div class="modal-contenido">
+          <h2 id="modal-titulo"></h2>
+          <div id="modal-cuerpo"></div>
+          <div id="modal-botones"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <video autoplay muted loop playsinline id="video-fondo">
+    <source src="./img/fondoPapelBlanco.webm" type="video/webm" />
+  </video>
+</body>
+
 </html>
