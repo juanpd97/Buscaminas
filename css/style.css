@@ -86,6 +86,9 @@ p{
   gap: 12px;
   margin-bottom: 24px;
 }
+.icono-menu{
+  display: none;
+}
 
 /* FORMULARIOS*/
 .formulario-dificultad-personalizada {

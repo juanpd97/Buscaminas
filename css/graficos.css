@@ -206,7 +206,9 @@ h1{
   justify-content: center;  
   gap: 10px;              
 }
-
+.icono-menu{
+  display: block;
+}
 .menu-titulo .icono-titulo-menu-jugar{
   height: 70px;
 }
