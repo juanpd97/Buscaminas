@@ -86,17 +86,46 @@ document.addEventListener("DOMContentLoaded", function () {
   btnMenuDesdeJuego.addEventListener("click", function () {
     modalMenuJuego();
   });
+
+  //opciones
+  var btnMenuOpciones = document.getElementById("btn-opciones");
+  btnMenuOpciones.addEventListener('click',function () {
+    mostrarPantalla('pantalla-opciones')
+  });
+
+  var btnVolverDesdeMenuOpciones = document.getElementById('btn-volver-inicio-desde-opciones');
+  btnVolverDesdeMenuOpciones.addEventListener('click', function (){
+    mostrarPantalla('pantalla-inicio');
+  });
+
+  var btnGrafico = document.getElementById('btn-graficos');
+  btnGrafico.addEventListener('click',function(){
+    cambiarGraficos();
+  });
+
 });
 // ------------------------------------
 
 function mostrarPantalla(idPantalla) {
   //i
   var pantallas = document.getElementsByClassName("pantalla");
-  var i;
-
-  for (i = 0; i < pantallas.length; i++) {
+  
+  for (var i = 0; i < pantallas.length; i++) {
     pantallas[i].classList.remove("pantalla-activa");
   }
 
   document.getElementById(idPantalla).classList.add("pantalla-activa");
 }
+
+function cambiarGraficos(){
+  var graficos = document.getElementById('graficos-css');
+  if (graficos.disabled) {
+        graficos.disabled = false; 
+    } else {
+        graficos.disabled = true;  
+    }
+};
+
+// function modoOscuro(){
+
+// }

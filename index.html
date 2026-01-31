@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- css -->
   <link rel="stylesheet" href="./css/modal.css" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="stylesheet" href="./css/graficos.css" />
-  <!-- js -->
+  <!-- <link id="modo-oscuro-sg" rel="stylesheet" href="./css/styleModoOscuro.css" /> -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link id="graficos-css" rel="stylesheet" href="./css/graficos.css" />
+    <!-- js -->
   <script src="./js/logicaJuego.js"></script>
   <script src="./js/cronometro.js"></script>
   <script src="./js/juegoUI.js"></script>
@@ -34,6 +35,8 @@
           <div class="menu-opciones">
             <button id="btn-jugar">Jugar</button>
             <button id="btn-ranking">Ranking</button>
+            <button id="btn-opciones">Opciones</button>
+            <button id="btn-contacto">Contacto</button>
           </div>
 
       </section>
@@ -128,6 +131,20 @@
           <div id="modal-botones"></div>
         </div>
       </div>
+      <!-- Pantalla: opciones -->
+      <section id="pantalla-opciones" class="pantalla">
+        <h1 class="menu-titulo">Opciones
+          <img class="icono-menu" src="./img/lapizYpapel.svg" alt="">
+        </h1>
+
+          <div class="menu-opciones">
+            <button id="btn-graficos">Graficos</button>
+            <!-- <button id="btn-sonido">Sonido</button> -->
+            <button id="btn-volver-inicio-desde-opciones">Volver</button>
+          </div>
+
+
+      </section>
     </main>
   </div>
   <video autoplay muted loop playsinline id="video-fondo">

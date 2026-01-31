@@ -58,15 +58,15 @@ function modalMenuJuego() {
       },
     },
     {
-      texto: "Salir",
+      texto: "opciones",
       click: function () {
-        mostrarPantalla("pantalla-inicio");
+        modalOpciones();
       },
     },
     {
-      texto: "Otros...",
+      texto: "Salir",
       click: function () {
-        alert("falta desarrolar");
+        mostrarPantalla("pantalla-inicio");
       },
     },
   ]);
@@ -139,4 +139,31 @@ function modalVictoria() {
   );
 
   document.getElementById("input-nombre").focus();
+}
+
+function modalOpciones() {
+  mostrarModal(
+    "OPCIONES","",
+    [
+      {
+        texto: "Graficos",
+        click: function () {
+          cambiarGraficos();
+          modalOpciones()
+        }
+      },
+      {
+        texto: "Modo oscuro",
+        click: function () {
+          
+        }
+      },
+      {
+        texto: "Volver",
+        click: function () {
+          modalMenuJuego();
+        }
+      }
+      ]
+  );
 }
