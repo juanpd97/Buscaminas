@@ -6,9 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- css -->
   <link rel="stylesheet" href="./css/modal.css" />
-  <!-- <link id="modo-oscuro-sg" rel="stylesheet" href="./css/styleModoOscuro.css" /> -->
-  <link rel="stylesheet" href="./css/style.css">
-  <link id="graficos-css" rel="stylesheet" href="./css/graficos.css" />
+  
+  <link id="style" rel="stylesheet" href="./css/style.css">
+  <link id="graficos" rel="stylesheet" href="./css/graficos.css" />
+
+  <link id="style-MO" rel="stylesheet" href="./css/styleModoOscuro.css" disabled />
+  <link id="graficos-MO" rel="stylesheet" href="./css/graficosModoOscuro.css" disabled/>
     <!-- js -->
   <script src="./js/logicaJuego.js"></script>
   <script src="./js/cronometro.js"></script>
@@ -139,6 +142,7 @@
 
           <div class="menu-opciones">
             <button id="btn-graficos">Graficos</button>
+            <button id="btn-modo-oscuro">Modo oscuro</button>
             <!-- <button id="btn-sonido">Sonido</button> -->
             <button id="btn-volver-inicio-desde-opciones">Volver</button>
           </div>
@@ -149,6 +153,9 @@
   </div>
   <video autoplay muted loop playsinline id="video-fondo">
     <source src="./img/fondoPapelBlanco.webm" type="video/webm" />
+  </video>
+    <video autoplay muted loop playsinline id="video-fondo-oscuro" disabled>
+    <source src="./img/fondoPapelNegro.webm" type="video/webm" />
   </video>
 </body>
 

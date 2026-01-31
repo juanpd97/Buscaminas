@@ -155,7 +155,8 @@ function modalOpciones() {
       {
         texto: "Modo oscuro",
         click: function () {
-          
+          modoOscuro();
+          modalOpciones()
         }
       },
       {
