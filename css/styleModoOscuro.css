@@ -182,7 +182,32 @@ p{
 }
 
 
-/*  RESPONSIVE*/
+/* ------------- Formulario contacto --------------- */
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;              
+  width: 100%;
+  max-width: 50%;      
+  margin: 0 auto;   
+  background-color: rgba(72, 72, 72, 0.945);     
+  border-radius: 50px;
+  padding: 25px;
+}
+/* Cada grupo (label + input + error) */
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ .botones-formulario-contacto{
+  display: flex;
+  justify-content: center;
+ }
+
+
+
+/* ------------------------- RESPONSIVE ----------------*/
 
 /* tablet */
 @media (max-width: 900px) {

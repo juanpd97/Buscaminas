@@ -13,6 +13,7 @@
   <link id="style-MO" rel="stylesheet" href="./css/styleModoOscuro.css" disabled />
   <link id="graficos-MO" rel="stylesheet" href="./css/graficosModoOscuro.css" disabled/>
     <!-- js -->
+  <script src="./js/contacto.js"></script>
   <script src="./js/logicaJuego.js"></script>
   <script src="./js/cronometro.js"></script>
   <script src="./js/juegoUI.js"></script>
@@ -147,7 +148,36 @@
             <button id="btn-volver-inicio-desde-opciones">Volver</button>
           </div>
 
+      </section>
 
+      <!-- Pantalla: contacto -->
+      <section id="pantalla-contacto" class="pantalla">
+        <h1 class="menu-titulo">Contacto</h1>
+          
+        <form id="formulario-contacto" class="formulario-contacto">
+          <div class="form-grupo">
+            <label for="input-nombre-contacto">Nombre:</label>
+            <input type="text" id="input-nombre-contacto" />
+            <span id="error-nombre-contacto" class="mensaje-error"></span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="input-email">Email:</label>
+            <input type="email" id="input-email" />
+            <span id="error-email" class="mensaje-error"></span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="input-mensaje">Mensaje:</label>
+            <textarea id="input-mensaje" rows="2"></textarea>
+            <span id="error-mensaje" class="mensaje-error"></span>
+          </div>
+
+          <div class="botones-formulario-contacto">
+          <button type="submit" id="btn-enviar-contacto">Enviar</button>
+          <button id="btn-volver-inicio-desde-contacto">Volver</button>
+          </div>
+        </form>
       </section>
     </main>
   </div>

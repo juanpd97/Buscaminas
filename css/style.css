@@ -171,7 +171,29 @@ p{
   display: none;
 }
 
-/*  RESPONSIVE*/
+/* ------------- Formulario contacto --------------- */
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;              
+  width: 100%;
+  max-width: 50%;      
+  margin: 0 auto;        
+}
+/* Cada grupo (label + input + error) */
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+ .botones-formulario-contacto{
+  display: flex;
+  justify-content: center;
+ }
+
+
+
+/*  ---------------- RESPONSIVE --------------- */
 
 /* tablet */
 @media (max-width: 900px) {
