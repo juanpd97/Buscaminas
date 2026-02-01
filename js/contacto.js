@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
-  
-  var hayErrores = false;
 
   var formulario = document.getElementById('formulario-contacto');
   
   formulario.addEventListener('submit', function(evento) {
     evento.preventDefault();
     
+    var hayErrores = false;
+
     var nombre = document.getElementById('input-nombre-contacto').value;
     var email = document.getElementById('input-email').value;
     var mensaje = document.getElementById('input-mensaje').value;
