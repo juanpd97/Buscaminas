@@ -110,19 +110,20 @@ document.addEventListener("DOMContentLoaded", function () {
     modoOscuro();
   });
 
-  var btnContacto = document.getElementById('btn-contacto');
-  btnContacto.addEventListener('click',  function(){
-    document.getElementById('error-nombre-contacto').textContent = '';
-    document.getElementById('error-email').textContent = '';
-    document.getElementById('error-mensaje').textContent = '';
+  var btnContacto = document.getElementById("btn-contacto");
+  btnContacto.addEventListener("click", function () {
+    document.getElementById("error-nombre-contacto").textContent = "";
+    document.getElementById("error-email").textContent = "";
+    document.getElementById("error-mensaje").textContent = "";
     mostrarPantalla("pantalla-contacto");
   });
 
-  var btnVolverInicioDesdeContacto = document.getElementById('btn-volver-inicio-desde-contacto');
-  btnVolverInicioDesdeContacto.addEventListener('click',  function(){
-  mostrarPantalla("pantalla-inicio");
+  var btnVolverInicioDesdeContacto = document.getElementById(
+    "btn-volver-inicio-desde-contacto",
+  );
+  btnVolverInicioDesdeContacto.addEventListener("click", function () {
+    mostrarPantalla("pantalla-inicio");
   });
-
 });
 // ------------------------------------
 
@@ -206,5 +207,3 @@ function modoOscuro() {
 //     videoMO.disabled = !activarOscuro;
 //   }
 // }
-
-

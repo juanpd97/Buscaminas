@@ -63,7 +63,7 @@ function presionarCeldaUI(x, y) {
   if (!cronometroIniciado) {
     iniciarCronometro();
   }
-  console.log("celdasRestantes: ", celdasRestantes);
+  // console.log("celdasRestantes: ", celdasRestantes);
   var resultado = presionarCelda(x, y);
 
   switch (resultado.estado) {
@@ -73,7 +73,7 @@ function presionarCeldaUI(x, y) {
 
     case "gameOver":
       revelarMinasUI(resultado.minas);
-      console.log("perdiste");
+      // console.log("perdiste");
       jugando = false;
       pausarCronometro();
       modalDerrota();
@@ -83,7 +83,7 @@ function presionarCeldaUI(x, y) {
       break;
     case "victoria":
       revelarCasillasUI(resultado.casillasARevelar);
-      console.log("ganaste :)");
+      // console.log("ganaste :)");
       jugando = false;
       pausarCronometro();
       modalVictoria();
@@ -111,19 +111,19 @@ function revelarCasillasUI(casillas) {
 
       switch (tablero[x][y].minasVecinas) {
         case 1:
-          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.remove("celda-cerrada");
           btnCelda.classList.add("celda-minas-vecinas-1");
           break;
         case 2:
-          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.remove("celda-cerrada");
           btnCelda.classList.add("celda-minas-vecinas-2");
           break;
         case 3:
-          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.remove("celda-cerrada");
           btnCelda.classList.add("celda-minas-vecinas-3");
           break;
         default:
-          btnCelda.classList.remove("celda-cerrada")
+          btnCelda.classList.remove("celda-cerrada");
           btnCelda.classList.add("celda-minas-vecinas-4");
           break;
       }

@@ -19,7 +19,7 @@
 }
 
 button {
-  background-image: url("/img/boton.svg");
+  background-image: url("../img/boton.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -36,7 +36,7 @@ button {
 
 /* ---------------------- MODAL */
 .modal-contenido {
-  background-image: url("/img/hojaCuadriculada.svg");
+  background-image: url("../img/hojaCuadriculada.svg");
   width: 35%;
 }
 #modal-titulo {
@@ -57,7 +57,7 @@ button {
 }
 
 #juego-contenedor {
-  background-image: url("/img/hojaCuadriculada.svg");
+  background-image: url("../img/hojaCuadriculada.svg");
 }
 .info-juego {
   gap: 25px;
@@ -130,15 +130,15 @@ button {
 
 /* --------------- CELDAS */
 .celda-abierta {
-  background-image: url("/img/bolloPapelAmarillo.svg");
+  background-image: url("../img/bolloPapelAmarillo.svg");
   color: #13131300;
 }
 .celda-cerrada {
-  background-image: url("/img/cuadradoAmarillo.svg");
+  background-image: url("../img/cuadradoAmarillo.svg");
   color: #13131300;
 }
 .celda-mina {
-  background-image: url("/img/mina.svg");
+  background-image: url("../img/mina.svg");
   color: #13131300;
 }
 .celda {
@@ -166,7 +166,7 @@ button {
   background-image: none;
 }
 .celda-bandera {
-  background-image: url("/img/bandera.svg");
+  background-image: url("../img/bandera.svg");
   color: #13131300;
 }
 
@@ -238,8 +238,8 @@ h1 {
     max-height: 75px;
     font-size: 10px;
   }
-  
-  .btn-modal{
+
+  .btn-modal {
     max-width: 175px;
     font-size: medium;
   }
@@ -260,7 +260,8 @@ h1 {
     font-size: 20px;
   }
 
-  th, td {
+  th,
+  td {
     padding: 8px 15px;
   }
 
@@ -299,33 +300,36 @@ h1 {
     max-height: 35px;
     font-size: 7px;
   }
-  
-  .info-contenedor-cronometro , .contenedor-cronometro{
+
+  .info-contenedor-cronometro,
+  .contenedor-cronometro {
     padding-left: 25px;
   }
 
-  #video-fondo{
+  #video-fondo {
     display: none;
   }
-  
-  #juego-contenedor{
+
+  #juego-contenedor {
     height: 100vh;
   }
-  
-  #btn-reiniciar{
+
+  #btn-reiniciar {
     justify-content: center;
     max-width: 125px;
   }
-  
-  .info-juego{
+
+  .info-juego {
     justify-content: right;
   }
-  
-  .contenedor-contador-minas, #btn-reiniciar , .contenedor-cronometro{
+
+  .contenedor-contador-minas,
+  #btn-reiniciar,
+  .contenedor-cronometro {
     padding: 0px;
   }
-  
-  .btn-modal{
+
+  .btn-modal {
     max-width: 125px;
     font-size: medium;
   }
@@ -349,7 +353,8 @@ h1 {
     width: 100%;
   }
 
-  th, td {
+  th,
+  td {
     padding: 6px 8px;
     font-size: 14px;
   }
@@ -370,7 +375,8 @@ h1 {
       font-size: 14px;
     }
 
-    th, td {
+    th,
+    td {
       padding: 4px 6px;
       font-size: 12px;
     }

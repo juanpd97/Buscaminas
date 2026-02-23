@@ -30,7 +30,7 @@ button {
   border: 1px solid #3a3a3a;
 }
 
-p{
+p {
   font-size: 25px;
 }
 
@@ -90,7 +90,7 @@ p{
   gap: 12px;
   margin-bottom: 24px;
 }
-.icono-menu{
+.icono-menu {
   display: none;
 }
 
@@ -168,29 +168,27 @@ p{
   cursor: default;
 }
 
-
 .icono-minas {
   display: none;
 }
-.imagen-caritaFeliz{
+.imagen-caritaFeliz {
   display: none;
 }
 
 /* modal */
-.modal-contenido{
+.modal-contenido {
   background-color: #1a1a1a;
 }
-
 
 /* ------------- Formulario contacto --------------- */
 .formulario-contacto {
   display: flex;
   flex-direction: column;
-  gap: 5px;              
+  gap: 5px;
   width: 100%;
-  max-width: 50%;      
-  margin: 0 auto;   
-  background-color: rgba(72, 72, 72, 0.945);     
+  max-width: 50%;
+  margin: 0 auto;
+  background-color: rgba(72, 72, 72, 0.945);
   border-radius: 50px;
   padding: 25px;
 }
@@ -200,12 +198,10 @@ p{
   flex-direction: column;
   gap: 4px;
 }
- .botones-formulario-contacto{
+.botones-formulario-contacto {
   display: flex;
   justify-content: center;
- }
-
-
+}
 
 /* ------------------------- RESPONSIVE ----------------*/
 
@@ -237,10 +233,10 @@ p{
     height: 28px;
     font-size: 14px;
   }
-    #video-fondo{
+  #video-fondo {
     display: none;
   }
-    #juego-contenedor{
+  #juego-contenedor {
     height: 100vh;
   }
 }

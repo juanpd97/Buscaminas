@@ -142,29 +142,26 @@ function modalVictoria() {
 }
 
 function modalOpciones() {
-  mostrarModal(
-    "OPCIONES","",
-    [
-      {
-        texto: "Graficos",
-        click: function () {
-          cambiarGraficos();
-          modalOpciones()
-        }
+  mostrarModal("OPCIONES", "", [
+    {
+      texto: "Graficos",
+      click: function () {
+        cambiarGraficos();
+        modalOpciones();
       },
-      {
-        texto: "Modo oscuro",
-        click: function () {
-          modoOscuro();
-          modalOpciones()
-        }
+    },
+    {
+      texto: "Modo oscuro",
+      click: function () {
+        modoOscuro();
+        modalOpciones();
       },
-      {
-        texto: "Volver",
-        click: function () {
-          modalMenuJuego();
-        }
-      }
-      ]
-  );
+    },
+    {
+      texto: "Volver",
+      click: function () {
+        modalMenuJuego();
+      },
+    },
+  ]);
 }
