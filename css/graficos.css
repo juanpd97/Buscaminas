@@ -295,10 +295,13 @@ h1 {
   .imagen-caritaFeliz,
   .icono-menu {
     max-width: 100px;
-    max-height: 35px;
+    max-height: 75px;
     font-size: 7px;
   }
-
+  #btn-menu-desde-juego {
+    transform: rotate(90deg);
+    max-width: 120px;
+  }
   .info-contenedor-cronometro,
   .contenedor-cronometro {
     padding-left: 25px;

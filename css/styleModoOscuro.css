@@ -239,4 +239,7 @@ p {
   #juego-contenedor {
     height: 100vh;
   }
+    .info-juego{
+    display: block;
+  }
 }
