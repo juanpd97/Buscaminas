@@ -5,6 +5,10 @@
   padding: 0;
 } */
 
+main {
+  height: 100%;
+}
+
 html,
 body {
   height: 100%;
@@ -221,10 +225,11 @@ a {
   }
 }
 
-/* mobile */
+/* mobile   :)))  */
 @media (max-width: 700px) {
   #pantalla-juego {
     justify-content: center;
+    align-items: center;
   }
 
   .menu-titulo {
@@ -236,42 +241,88 @@ a {
     height: 28px;
     font-size: 14px;
   }
-  #video-fondo {
-    display: none;
-  }
+  
   #juego-contenedor {
+    margin: 0;
+    border-radius: 0;
     height: 100vh;
+    max-width: 100%;
   }
-  .info-juego{
+  .info-juego {
     display: block;
   }
-  /*--------------------------------------------*/
+
   html,
   body {
     height: auto;
-    overflow-y: auto;    
-    overflow-x: hidden;   
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-  #video-fondo-oscuro, #video-fondo-oscuro{
+  #video-fondo,
+  #video-fondo-oscuro {
     display: none;
   }
   #tablero {
-  flex: 1;
-  width: 100%;
-  overflow: auto;       
-  padding: 16px;
+    flex: 1;
+    width: 100%;
+    overflow: auto;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  .pantalla {
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  main {
+    height: 100%;
+  }
+  .pantalla {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  #pantalla-inicio div,
+  #btn-volver-inicio,
+  .botones-formulario-contacto,
+  #btn-volver-inicio-desde-opciones,
+  #btn-volver-inicio-desde-ranking,
+  #btn-volver-inicio,
+  #btn-volver-dificultad-desde-personalizado {
+    margin-bottom: 50px;
+  }
 }
-#pantalla-juego {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-main {
-  height: 100%;
-}
-.pantalla {
-  height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
+
+@media (max-height: 700px) {
+  #video-fondo,
+  #video-fondo-oscuro {
+    display: none;
+  }
+  #juego-contenedor {
+    margin: 0;
+    border-radius: 0;
+    height: 100vh;
+    max-width: 100%;
+  }
+  #pantalla-juego {
+    justify-content: center;
+    align-items: center;
+  }
+  .pantalla,
+  #modal-juego {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  #pantalla-inicio div,
+  #btn-volver-inicio,
+  .botones-formulario-contacto,
+  #btn-volver-inicio-desde-opciones,
+  #btn-volver-inicio-desde-ranking,
+  #btn-volver-inicio,
+  #btn-volver-dificultad-desde-personalizado {
+    margin-bottom: 50px;
+  }
 }
