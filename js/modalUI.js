@@ -29,6 +29,12 @@ function mostrarModal(titulo, mensaje, botones) {
 function modalDerrota() {
   mostrarModal("¡GAME OVER!", "Pisaste una mina", [
     {
+      texto: "Mostrar Tablero",
+      click: function () {
+        mostrarPantalla("pantalla-juego");
+      },
+    },
+    {
       texto: "Reiniciar",
       click: function () {
         empezarJuegoUI(
