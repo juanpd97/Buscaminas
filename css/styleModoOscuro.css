@@ -242,7 +242,36 @@ a {
   #juego-contenedor {
     height: 100vh;
   }
-    .info-juego{
+  .info-juego{
     display: block;
   }
+  /*--------------------------------------------*/
+  html,
+  body {
+    height: auto;
+    overflow-y: auto;    
+    overflow-x: hidden;   
+  }
+  #video-fondo-oscuro, #video-fondo-oscuro{
+    display: none;
+  }
+  #tablero {
+  flex: 1;
+  width: 100%;
+  overflow: auto;       
+  padding: 16px;
+}
+#pantalla-juego {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+main {
+  height: 100%;
+}
+.pantalla {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 }
