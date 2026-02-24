@@ -1,0 +1,10 @@
+<svg width="600" height="80" viewBox="0 0 600 80" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+<!--Patrón de líneas diagonales-->
+    <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="8" height="8" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#000" stroke-width="2"/>
+    </pattern>
+  </defs>
+<!--Barra con esquinas redondeadas y relleno rayado-->
+  <rect x="2" y="2" width="596" height="76" rx="20" ry="20" fill="url(#diagonalHatch)" stroke="#000" stroke-width="4"/>
+</svg>

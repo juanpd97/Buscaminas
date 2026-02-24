@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+
+* {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+#video-fondo-oscuro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Hace que el video cubra todo sin deformarse */
+  z-index: -1; /* Lo manda al fondo de todo */
+}
+
+button {
+  background-image: url("../img/boton.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+
+  font-size: 25px;
+  background-color: transparent;
+  width: 220px;
+  height: 90px;
+
+  color: black;
+}
+
+/* ---------------------- MODAL */
+.modal-contenido {
+  background-image: url("../img/hojaCuadriculada.svg");
+  width: 35%;
+}
+#modal-titulo {
+  font-weight: 600;
+  font-size: 30px;
+}
+#modal-botones {
+  align-items: center;
+}
+
+/* ----------------------TABLERO */
+.barra-juego {
+  background-color: #ffffff00;
+  margin-top: 5px;
+}
+#btn-menu-desde-juego {
+  max-width: 150px;
+}
+
+#juego-contenedor {
+  background-image: url("../img/hojaCuadriculada.svg");
+}
+.info-juego {
+  gap: 25px;
+}
+
+/* ---------- BOTON REINICIAR */
+
+#btn-reiniciar {
+  background-image: none;
+  display: flex;
+  align-items: center;
+}
+.imagen-caritaFeliz {
+  height: 100px;
+  display: block;
+}
+.texto-caritaFeliz {
+  display: none;
+}
+
+/* -------------Contador de minas restantes */
+
+.contenedor-contador-minas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-style: dashed;
+  padding: 0% 3%;
+  border-color: rgba(124, 124, 124, 0.769);
+  /* background-color: rgba(156, 156, 154, 0.118); */
+  /* margin-right: 25%; */
+  background-color: rgb(79, 79, 79);
+  border-color: rgba(255, 255, 255, 0.769);
+}
+.icono-minas {
+  display: block;
+  width: 100px;
+  height: 75px;
+}
+.texto-minas {
+  display: none;
+}
+
+/* ------------- cronometro */
+.contenedor-cronometro {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-style: dashed;
+  padding: 0% 3%;
+  border-color: rgba(255, 255, 255, 0.769);
+  /* margin-left: 25%; */
+  background-color: rgb(79, 79, 79);
+}
+
+.icono-tiempo {
+  display: inline-block;
+  width: 100px;
+  height: 75px;
+  margin-right: 6px;
+
+  background-image: url("../img/relojAmarillo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.texto-tiempo {
+  display: none;
+}
+
+/* --------------- CELDAS */
+.celda-abierta {
+  background-image: url("../img/bolloPapelAmarillo.svg");
+  color: #13131300;
+}
+.celda-cerrada {
+  background-image: url("../img/cuadradoAmarillo.svg");
+  color: #13131300;
+}
+.celda-mina {
+  background-image: url("../img/mina.svg");
+  color: #13131300;
+}
+.celda {
+  font-size: 20px;
+  background-color: rgb(72, 72, 72);
+}
+.celda-minas-vecinas-1 {
+  color: rgb(255, 255, 255);
+  font-weight: 700;
+  background-image: none;
+}
+.celda-minas-vecinas-2 {
+  color: rgb(0, 255, 38);
+  font-weight: 700;
+  background-image: none;
+}
+.celda-minas-vecinas-3 {
+  color: rgb(0, 0, 255);
+  font-weight: 700;
+  background-image: none;
+}
+.celda-minas-vecinas-4 {
+  color: rgb(255, 0, 0);
+  font-weight: 1000;
+  background-image: none;
+}
+.celda-bandera {
+  background-image: url("../img/bandera.svg");
+  color: #13131300;
+}
+
+/* ------------- TABLERO ranking*/
+
+#tablero {
+  margin-top: 15px;
+  max-width: 90%;
+  max-height: calc(100vh - 230px);
+  overflow: auto;
+  display: inline-block;
+}
+
+th,
+td {
+  padding: 0px 25px;
+}
+#filtro-dificultad {
+  margin-left: 5px;
+}
+#lista-ranking {
+  background-color: rgba(72, 72, 72, 0.897);
+  padding: 20px;
+  border-radius: 50px;
+  border-style: dotted;
+}
+
+h1 {
+  background-color: rgba(72, 72, 72, 0.896);
+  padding: 20px;
+  border-radius: 50px;
+  border-style: dotted;
+}
+
+/*  ----------------------- menu --------------*/
+.menu-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.icono-menu {
+  display: block;
+}
+.menu-titulo .icono-titulo-menu-jugar {
+  height: 70px;
+}
+
+/*  RESPONSIVE*/
+
+/* tablet */
+@media (max-width: 900px) {
+  .menu-titulo {
+    font-size: 40px;
+  }
+
+  .celda {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  #btn-menu-desde-juego,
+  .icono-tiempo,
+  .icono-minas,
+  .imagen-caritaFeliz,
+  .icono-menu {
+    max-width: 100px;
+    max-height: 75px;
+    font-size: 10px;
+  }
+
+  .btn-modal {
+    max-width: 175px;
+    font-size: medium;
+  }
+
+  /* Ranking responsive tablet */
+  #lista-ranking {
+    padding: 15px;
+    max-width: 90%;
+    overflow-x: auto;
+  }
+
+  h1 {
+    padding: 15px;
+    font-size: 35px;
+  }
+
+  table {
+    font-size: 20px;
+  }
+
+  th,
+  td {
+    padding: 8px 15px;
+  }
+
+  #filtro-dificultad {
+    font-size: 18px;
+  }
+
+  #btn-volver-inicio-desde-ranking {
+    max-width: 175px;
+    font-size: medium;
+  }
+}
+
+/* mobile */
+@media (max-width: 700px) {
+  #pantalla-juego {
+    justify-content: center;
+  }
+
+  .menu-titulo {
+    font-size: 32px;
+  }
+
+  .celda {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  #btn-menu-desde-juego,
+  .icono-tiempo,
+  .icono-minas,
+  .imagen-caritaFeliz,
+  .icono-menu {
+    max-width: 100px;
+    max-height: 75px;
+    font-size: 7px;
+  }
+  #btn-menu-desde-juego {
+    transform: rotate(90deg);
+    max-width: 120px;
+  }
+  .info-contenedor-cronometro,
+  .contenedor-cronometro {
+    padding-left: 25px;
+  }
+
+  #video-fondo {
+    display: none;
+  }
+
+  #juego-contenedor {
+    height: 100vh;
+  }
+
+  #btn-reiniciar {
+    justify-content: center;
+    max-width: 125px;
+  }
+
+  .info-juego {
+    justify-content: right;
+  }
+
+  .contenedor-contador-minas,
+  #btn-reiniciar,
+  .contenedor-cronometro {
+    padding: 0px;
+  }
+
+  .btn-modal {
+    max-width: 125px;
+    font-size: medium;
+  }
+
+  /* Ranking responsive mobile */
+  #lista-ranking {
+    padding: 10px;
+    max-width: 95%;
+    overflow-x: auto;
+    border-radius: 25px;
+  }
+
+  h1 {
+    padding: 10px;
+    font-size: 28px;
+    border-radius: 25px;
+  }
+
+  table {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 6px 8px;
+    font-size: 14px;
+  }
+
+  #filtro-dificultad {
+    font-size: 14px;
+    margin-left: 2px;
+  }
+
+  #btn-volver-inicio-desde-ranking {
+    max-width: 125px;
+    font-size: medium;
+  }
+
+  /* Ocultar columnas en mobile muy pequeño si es necesario */
+  @media (max-width: 500px) {
+    table {
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 4px 6px;
+      font-size: 12px;
+    }
+
+    #filtro-dificultad {
+      font-size: 12px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .menu-titulo {
+      font-size: 26px;
+    }
+  }
+}

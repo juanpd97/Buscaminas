@@ -1,36 +1,57 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- css -->
-    <link rel="stylesheet" href="./css/modal.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <!-- js -->
-    <script src="./js/logicaJuego.js"></script>
-    <script src="./js/cronometro.js"></script>
-    <script src="./js/juegoUI.js"></script>
-    <script src="./js/modalUI.js"></script>
-    <script src="./js/rankingUI.js"></script>
-    <script src="./js/UI.js"></script>
-    <title>Buscaminas</title>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- css -->
+  <link rel="stylesheet" href="./css/modal.css" />
+  
+  <link id="style" rel="stylesheet" href="./css/style.css">
+  <link id="graficos" rel="stylesheet" href="./css/graficos.css" />
+
+  <link id="style-MO" rel="stylesheet" href="./css/styleModoOscuro.css" disabled />
+  <link id="graficos-MO" rel="stylesheet" href="./css/graficosModoOscuro.css" disabled/>
+    <!-- js -->
+  <script src="./js/contacto.js"></script>
+  <script src="./js/logicaJuego.js"></script>
+  <script src="./js/cronometro.js"></script>
+  <script src="./js/juegoUI.js"></script>
+  <script src="./js/modalUI.js"></script>
+  <script src="./js/rankingUI.js"></script>
+  <script src="./js/UI.js"></script>
+  <title>Buscaminas</title>
+  <link rel="icon" href="./img/mina.svg" />
+</head>
+
+<body>
+  <div id="juego-contenedor">
     <main>
       <!-- Pantalla: Menú principal -->
       <section id="pantalla-inicio" class="pantalla pantalla-activa">
-        <h1 class="menu-titulo">Buscaminas</h1>
 
-        <div class="menu-opciones">
-          <button id="btn-jugar">Jugar</button>
-          <button id="btn-ranking">Ranking</button>
-        </div>
+          <h1 class="menu-titulo">
+            <img class="icono-menu" src="./img/bandera.svg" alt="">
+            Buscaminas
+            <img class="icono-menu" src="./img/mina.svg" alt="">
+          </h1>
+
+          <div class="menu-opciones">
+            <button id="btn-jugar">Jugar</button>
+            <button id="btn-ranking">Ranking</button>
+            <button id="btn-opciones">Opciones</button>
+            <button id="btn-contacto">Contacto</button>
+          </div>
+
       </section>
 
       <!-- Pantalla: Selección de dificultad -->
       <section id="pantalla-dificultad" class="pantalla">
-        <h1 class="menu-titulo">Jugar</h1>
+        <h1 class="menu-titulo">
+          Jugar
+           <img class="icono-titulo-menu-jugar icono-menu" src="./img/minaAbierta.svg" alt="">
+        </h1>
+
 
         <div class="menu-opciones">
           <button id="btn-facil">Fácil</button>
@@ -68,7 +89,9 @@
 
       <!-- Pantalla: Ranking -->
       <section id="pantalla-ranking" class="pantalla">
-        <h1 class="menu-titulo">Ranking</h1>
+        <h1 class="menu-titulo">Ranking
+          <img class="icono-menu" src="./img/trofeo.svg" alt="">
+        </h1>
 
         <div id="lista-ranking" class="lista-ranking"></div>
 
@@ -81,9 +104,24 @@
           <button id="btn-menu-desde-juego">☰</button>
 
           <div class="info-juego">
-            <span id="contador-minas">banderas: 0</span>
-            <button id="btn-reiniciar">:)</button>
-            <span id="cronometro">Tiempo: 0</span>
+
+            <span class="contenedor-contador-minas">
+              <img class="icono-minas" src="./img/bandera.svg"></img>
+              <span class="texto-minas">Minas:</span>
+              <span id="contador-minas"></span>
+            </span>
+
+            <button id="btn-reiniciar">
+              <img class="imagen-caritaFeliz" src="./img/caritaFeliz.svg" alt="caritaFeliz">
+              <p class="texto-caritaFeliz">:)</p>
+            </button>
+
+            <span class="contenedor-cronometro">
+              <span class="icono-tiempo"></span>
+              <span class="texto-tiempo">Tiempo:</span>
+              <span id="cronometro"></span>
+            </span>
+
           </div>
         </div>
 
@@ -97,6 +135,58 @@
           <div id="modal-botones"></div>
         </div>
       </div>
+      <!-- Pantalla: opciones -->
+      <section id="pantalla-opciones" class="pantalla">
+        <h1 class="menu-titulo">Opciones
+          <img class="icono-menu" src="./img/lapizYpapel.svg" alt="">
+        </h1>
+
+          <div class="menu-opciones">
+            <button id="btn-graficos">Graficos</button>
+            <button id="btn-modo-oscuro">Modo oscuro</button>
+            <!-- <button id="btn-sonido">Sonido</button> -->
+            <button id="btn-volver-inicio-desde-opciones">Volver</button>
+          </div>
+
+      </section>
+
+      <!-- Pantalla: contacto -->
+      <section id="pantalla-contacto" class="pantalla">
+        <h1 class="menu-titulo">Contacto</h1>
+          
+        <form id="formulario-contacto" class="formulario-contacto">
+          <div class="form-grupo">
+            <label for="input-nombre-contacto">Nombre:</label>
+            <input type="text" id="input-nombre-contacto" />
+            <span id="error-nombre-contacto" class="mensaje-error"></span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="input-email">Email:</label>
+            <input type="email" id="input-email" />
+            <span id="error-email" class="mensaje-error"></span>
+          </div>
+
+          <div class="form-grupo">
+            <label for="input-mensaje">Mensaje:</label>
+            <textarea id="input-mensaje" rows="2"></textarea>
+            <span id="error-mensaje" class="mensaje-error"></span>
+          </div>
+
+          <div class="botones-formulario-contacto">
+          <button type="submit" id="btn-enviar-contacto">Enviar</button>
+          <button id="btn-volver-inicio-desde-contacto">Volver</button>
+          </div>
+        </form>
+      </section>
     </main>
-  </body>
+  </div>
+  <video autoplay muted loop playsinline id="video-fondo">
+    <source src="./img/fondoPapelBlanco.webm" type="video/webm" />
+  </video>
+    <video autoplay muted loop playsinline id="video-fondo-oscuro" disabled>
+    <source src="./img/fondoPapelNegro.webm" type="video/webm" />
+  </video>
+</body>
+
 </html>
